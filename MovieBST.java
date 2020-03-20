@@ -11,11 +11,14 @@ public class MovieBST {
 	
 	 private Movie first;
 	 
-	 //This method is extremely confusing for a number of Reasons
+	 //The subset method is extremely confusing for a number of Reasons
 	 //1)I Don't understand how to traverse between two specific points in a binary tree
 	 //2)Since the two Parameters are Strings, How do I get their positions within the tree?
 	 //3)What exactly is meant by "between start and end"? Should I find the path between the nodes containing the strings or the levels between them?
 	 
+	
+	//Using the search method to check is the node containing start exists
+	//Starting from the node that contains "start" call the order method to print all nodes until "end"
 	  public void subSet(String start, String end){
 	    // Selects movie titles that fall alphabetically between start and end.
 		
@@ -28,7 +31,9 @@ public class MovieBST {
 		
 	  }
 	  
-	  //Inserts all Movie nodes into a Binary Tree
+	  //Inserts all Movie nodes into a Binary Tree 
+	  //Creates new movie nodes and inserts them into the left and right branches
+		//All movie nodes are inserted alphabetically by title
 	  public void insert(String d,int a) {
 		  if(first == null) {
 			  first = new Movie(d,a);
@@ -48,7 +53,7 @@ public class MovieBST {
 	  }	  
 	 }//End Insert
 	  
-	  public void traverse() {order(first,"Persuasion (1995)");}
+	  
 	  
 	  //Prints the Values from the Binary Tree recursively
 	  public void order(Movie first, String stop) {
@@ -60,6 +65,8 @@ public class MovieBST {
 	  }//end order
 	  
 	  //Allows for searching of a movie node within the Binary Tree
+		//Matches the root with the title as the key
+		//Recursively checks the left and right branches
 	  public Movie search(String name, Movie node){
 		    if(node != null){
 		        if(node.getTitle().equals(name)){
@@ -122,8 +129,7 @@ public class MovieBST {
 					}
 				}
 				
-				//years.add(tokens[0]);
-				//System.out.println(answer);
+				
 			}	
 		    //TESTER 	    
 			MovieBST movietree = new MovieBST();
